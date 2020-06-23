@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>F1 Data Visualisation</title>
+    <script src="https://d3js.org/d3.v5.js"></script>
+</head>
+<body>
+
+    <header>
+        <img class="logo" src="Ayberk_Demirkol_logo.png" alt="logo" href="#Introduction"></img>
+        <nav>
+            <ul class="nav_links">
+                <li><a href="#Introduction">Introduction</a></li>
+                <li><a href="#Visualisation">Visualisation</a></li>
+                <li><a href="#Summary">Summary</a></li>
+                <li><a href="#Discussion">Discussion</a></li>
+                <li><a href="#Conclusion">Conclusion</a></li>
+                <li><a href="#Literature">Literature</a></li>
+                <li><a href="#Resources">Video</a></li>
+                <li><a href="#Resources">Resources</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="section" id="Introduction"><h2>Introduction</h2>
+        <article class="subhead">
+            <!--Introduction -->
+            Formula 1 is the most competitive single-seat auto race. Since 1950 it is been one of the top races to compete in.
+            There are 10 teams in Formula 1 with each one having 2 drivers.
+            The aim is to collect the most points with 2 drivers and become the Constructor's Cup Champion. Many factors contribute to this aim
+            ranging from aerodynamics, engine, tires to even pit strategies. However, without a great driver to drive the car these factors don't mean
+            much. The best drivers are driving not only to get the fastest lap time but also protect the tires in order to keep the tire performance at best.
+            Since all of the famous drivers could not race at the same time with each other, one of the few ways we can compare them is by ranking their
+            win and podium performances. The first 2 bar charts will help answer the question: "Who is the all-time best Formula 1 driver?".
+            To compare the current drivers, a line chart is implemented showing lap times per lap of Top 5 drivers in the 2019 Italian Grand Prix. The top 5 consists of
+            2 drivers from Renault F1 team, 2 drivers from Mercedes-AMG F1 team, and 1 driver from Ferrari F1 team. To answer the question "Who is the better driver
+            in a team?" 2 drivers in the same team will be selected and looked at their consistency and lap times. By this chart, pit strategies used by teams, collisions
+            during race, and how different strategies worked will be seen. The dataset used for visualisation is provided by Ergast Developer API [5]. It contains data from
+            1950 to 2019, and consists of data tables showing constructors, drivers, lap times and much more. The database is downloaded in csv format and then algorithms implemented in Python parsed and
+            processed the data so it can be used for visualisation.
+        </article>
+    </div>
+    <hr>
+    <div class="section" id="Visualisation"> <h2>Visualisation</h2>
+        <section>
+            <div id="Barchart" class="leftBox"></div>
+            <div id="Barchart2" class="rightBox"></div>
+        </section>
+        <section>
+            <div id="Linechart"></div>
+        </section>
+    </div>
+    <hr>
+    <div class="section" id="Summary"> <h2>Summary</h2>
+        <article class="subhead">
+            <!--Bar Chart Summary -->
+            The bar charts clearly show that there are 2 drivers that are better than others: Michael Schumacher and Lewis Hamilton. As they have never raced as teammates,
+            we cannot really compare them. However, Lewis Hamilton has a significantly higher podium and win percent than Schumacher and he is still racing
+            in a favourite team. Another driver that needs to be considered is Jim Clark with 34.25% win rate.
+            He has significantly less win and podium count than other drivers, but it can be explained with Formula 1
+            season having significantly less races in a season in 1960's.
+            <br><br>
+            <!--Line Chart Summary -->
+            Line chart of driver's lap times in 2019 Italian Grand Prix shows us multiple results. First of all, it is clear to see that 1st lap of all drivers
+            took longer compared to their long-run times. This can be reasoned with cars starting from halt in the first lap rather than passing the starting straight
+            with high speeds. It is also clear to see that Charles Leclerc and Lewis Hamilton went to pit stop around 20th lap,
+            following a similar strategy. The pit-stops can be easily spotted by their unique curve. When a driver changes tires, their first lap after is significantly
+            faster than their lap before pit stop. So, it is clear that the curve of them around 20th lap is a pit-stop curve whilst, the curve on 30th lap is caused by a yellow flag
+            due to a collision on track because multiple drivers have a worse time around the same laps. In fact, there are 2 accidents in that curve because at first
+            drivers do way slower laps, then they make a slightly faster lap, right before making another significantly bad lap. When Valtteri Bottas and Daniel Ricciardo are selected
+            individually, it is seen that their best lap times are right after the collision on 30th lap. We can conclude that they used the collision to do a
+            pit-stop and change tires. Another interesting curve in the line chart is Lewis Hamilton's best lap right after a slow, pit-stop, lap around 50th lap.
+            When a driver has this curve, it means that the driver has guaranteed his place for the race, and hopeless to pass the driver at the front, so they change
+            tires to get the best lap of the race for an extra 1 point. It worked for Lewis Hamilton in this case as his lap after pit-stop is the fastest lap in the
+            race. One final thing to point out is the difference between cars. When looked mutually, Mercedes and Ferrari cars are faster in almost every lap compared to
+            Renault cars. This is due to car performance.
+        </article>
+    </div>
+    <hr>
+    <div class="section" id="Discussion"> <h2>Discussion</h2>
+        <article class="subhead">
+            <!--Discussion -->
+            <!--Findings -->
+            Whilst parsing the data for most successful drivers, it has been noticed that there are drivers with 50% win and podium rate that are not famously known.
+            After researching it has been discovered that in the 50's and 60's Formula 1 teams had drivers who would race only a few races for them. That resulted
+            in some drivers creating bias in the data. To remove this, drivers were conditioned to have raced at least 10 races to be eligible to be shown in the bar chart.
+            Furthermore, current drivers had mostly steady lap times during Italian Grand Prix. This shows that drivers are not making many mistakes that would
+            result in terrible laps.
+            <br><br>
+            <!--Strengths -->
+            The strength of using multi-valued bar chart to show driver success is that it was clear that there were 2 better drivers when looked at the counts. Also,
+            podium count and rates of every single driver would be more than their win count and rates, therefore it avoided confusion that might be caused by using a
+            multi-valued bar chart. Using a line chart for lap times allowed a comparison between selected drivers. Therefore, teammates, different cars
+            and pit strategies can be compared. Also having multiple teams allowed drivers to be coloured by their team colours. Red is used for Ferrari, green for Mercedes AMG and yellow
+            for Renault as those colours are official colours of these teams.
+            <br><br>
+            <!--Limitations -->
+            Due to the fact of little knowledge on D3.js before this coursework, after parsing the data it was put into csv format rather than JSON. Having the data
+            in JSON format would have made it easier as there were more examples of using JSON for D3. One major limitation was due to usage of line chart to show lap
+            times. At first all 20 drivers were shown in the chart however, that resulted in confusion because most of the drivers lap times are around the same times.
+            That's why the number of drivers were decreased to 5. Another limitation was that in most races in Formula 1 some drivers either have to retire the car
+            or lapped so they cannot finish all the laps. This resulted in NaN values for some laps when all drivers were used.
+        </article>
+    </div>
+    <hr>
+    <div class="section" id="Conclusion"> <h2>Conclusion</h2>
+    <article class="subhead">
+        <!--Conclusion -->
+        <!--Reflection -->
+        During implementation, the hardest part was to process the data to be able to use in D3. To be able to use the data as domain and range it had to be processed
+        and because of the learning curve, that took the longest time. Even though there are multiple examples online, there were no examples
+        of line chart with time as unit on y-axis. For visualisation principles, lines and  areas were used as mark types and the bar data was ordered from the one with
+        most wins to least, and line chart was ordered to start from the first finishing driver to fifth. In the line chart, different hue is used for different teams and different saturation was used between
+        teammates. In the bar chart, different hue is used for different statistics.
+        <br><br>
+        <!--Improvement -->
+        To better answer the question "Who is the best driver in F1?" another bar chart using driver accident data can be prepared. Better drivers tend to make less
+        accidents and protect their tires better. Another statistic that would be important to see is how these drivers do in qualification days. During qualification days
+        drivers try to do their best lap with brand new tires without racing in a lap. So, this eliminates some of the uncontrolled variables such as collisions and tire performance.
+        However, due to the nature of Formula 1 there are many uncontrolled variables in every race so one could only argue that
+        one driver is better than another. Only precise comparison that could be made is by comparing drivers that are in the same teams. They drive the same cars
+        with same settings so when a driver has dominance over his teammate during a season it can be concluded that the dominant driver is better.
+        One thing that could be done differently is that to show both win/podium percentage and count a stacked bar chart similar to Burtin's antibiotics<sup>[2]</sup> could be implemented. Since podium count is always
+        higher than win count, the podium count would be the longer column in every racer. This way, both percentage and count could be shown in the same chart.
+    </article>
+    </div>
+    <hr>
+    <div class="section" id="Literature"> <h2>Literature Review</h2>
+        <article class="subhead">
+            The project in [7] is a very detail-oriented project focusing on the first question asked in the makings of this project: "Who is the Greatest of
+            All Time in Formula 1?". It is implemented using the same dataset [5] and D3. As the project is very detailed, instead of only focusing on the win numbers and
+            percentages; the drivers were compared by different tracks and different technical parameters such as engine manufacturer or sizes such as V6-hybrid era versus
+            V8 engines. Although the main visualisation component is looking modern, it is very complicated to understand and when drivers are selected to make comparisons
+            line charts have been used to visualise true or false data over years which makes the chart incomprehensive. The same question is also answered in [7].
+            A bubble chart has been used to rank drivers by their number of wins and pole positions. Bubble size is correlated with championship numbers of each driver.
+            It is similarly concluded that L. Hamilton and M. Schumacher are better than the remaining of the drivers, with L. Hamilton just 18 wins shy of Schumacher at that time.
+            After 2019 season that number is decreased to 7 as it can be seen in the bar chart. The project in [3] is also using the same dataset although, different aspects of
+            Formula 1 has been considered and visualised. To answer questions "Are F1 cars going slower nowadays?" multiple scatter charts for every track showing fastest lap
+            in every year have been implemented. And then, using a box plot the trend is summarised. The cars seem to be slowed between 2005 and 2014. It is reasonable because
+            in 2014 Formula 1 regulations introduced new V6 engine to replace previous V8. In the same project, the drivers are compared by the domination in each year. According to
+            publisher, the results and histogram show that M. Schumacher is the best driver of all time because he has dominated almost every season he raced in. To conclude,
+            in literature different approaches have been taken to find the best driver in Formula 1.
+            In this project, the novelty is that podium count and rate is also included.
+        </article>
+    </div>
+    <hr>
+    <div class="section" id="Video"> <h2>Video</h2>
+        <iframe class="video" width="640" height="480" src="https://www.youtube.com/embed/LOtCrt6U2tM"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+    <hr>
+    <div class="section" id="Resources"> <h2>Resources</h2>
+        <article style="text-align: center">
+            [1] Bostock, Mike. “Grouped Bar Chart.” Observable, Observable, 1 Mar. 2019, observablehq.com/@d3/grouped-bar-chart.
+            <br>
+            [2] Bostock, Mike. “Multi-Line Chart.” Observable, Observable, 20 Oct. 2018, observablehq.com/@d3/multi-line-chart.
+            <br>
+            [3] Bouchet, Jonathan. “F1 Data Analysis.” Kaggle, Kaggle, 9 Dec. 2017, www.kaggle.com/jonathanbouchet/f1-data-analysis.
+            <br>
+            [4] “Burtin's Antibiotics.” Protovis - Burtin's Antibiotics, Stanford Visualization Group, mbostock.github.io/protovis/ex/antibiotics-burtin.html.
+            <br>
+            [5] “Database Images.” Ergast Developer API, WordPress, 15 Dec. 2019, ergast.com/mrd/db/.
+            <br>
+            [6] “Infographic: Formula 1's All-Time Greatest Drivers.” Boss Hunting, Boss Hunting, 8 Apr. 2019, www.bosshunting.com.au/sport/formula-1-all-time-greatest-drivers/.
+            <br>
+            [7] Paul, Jason J. “F1 Data Visualization.” Formula 1 Data Vis, Jason J. Paul, jasonjpaul.squarespace.com/formula-1-data-vis.
+        </article>
+    </div>
+    <hr>
+
+    <script src="js/win_podium_percent.js"></script>
+    <script src="js/win_podium.js"></script>
+    <script src="js/monza_times.js"></script>
+</body>
+<!-- Footer -->
+<footer id="footer-bottom" class="container">
+    <div> &copy; Ayberk Demirkol U1723743 | Designed by Ayberk Demirkol</div>
+</footer>
+
+<!-- Footer -->
+</html>
